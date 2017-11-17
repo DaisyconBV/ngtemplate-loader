@@ -43,6 +43,10 @@ module.exports = function (content) {
         .filter(Boolean)
         .join(pathSep)
         .replace(new RegExp(escapeRegExp(pathSep) + '+', 'g'), pathSep);
+	if (filePath.substr(0,1) === '/')
+	{
+		filePath = filePath.substr(1);
+	}
     var html;
 
     if (content.match(/^module\.exports/)) {
